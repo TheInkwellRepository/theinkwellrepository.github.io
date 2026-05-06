@@ -248,7 +248,7 @@
 <!-- ================================================================
      SITE HEADER — Sticky, minimalist navigation bar
      ================================================================ -->
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-[100]">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
@@ -281,9 +281,9 @@
       <input type="checkbox" id="mobile-menu-toggle" class="hidden peer/menu" />
 
       <!-- Mobile dropdown -->
-      <div class="absolute top-16 left-0 right-0 hidden peer-checked/menu:block md:hidden"
-           style="background-color: rgba(15,15,15,0.97); border-bottom: 1px solid rgba(255,255,255,0.07);">
-        <ul id="mobile-nav-list" class="flex flex-col px-6 py-4 gap-4 list-none m-0 p-0 px-6 py-4"></ul>
+      <div class="absolute top-16 left-0 right-0 hidden peer-checked/menu:block md:hidden z-[110]"
+           style="background-color: #0f0f0f; border-bottom: 1px solid rgba(255,255,255,0.07); min-height: 100vh;">
+        <ul id="mobile-nav-list" class="flex flex-col px-6 py-8 gap-6 list-none m-0 p-0"></ul>
       </div>
 
     </div>
