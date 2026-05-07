@@ -26,6 +26,15 @@
             background: radial-gradient(circle at 50% 30%, rgba(218, 165, 32, 0.3) 0%, rgba(249, 247, 242, 1) 90%); 
         }
 
+        /* Scroll Animation */
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(10px); opacity: 0.8; }
+        }
+        .scroll-hint {
+            animation: bounce-subtle 2s infinite ease-in-out;
+        }
+
         /* The Gold & Red Accents */
         .text-gold { color: #b8860b; }
         .bg-wax-red { background-color: #991b1b; }
@@ -93,9 +102,15 @@
             <h1 class="text-3xl md:text-5xl font-bold mt-0 mb-6 tracking-[0.2em] uppercase text-[#1a1a1a] leading-tight" id="hero-title"></h1>
 
             <p class="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl font-light italic" id="hero-subtitle"></p>
+            
             <div class="flex gap-4">
                 <a href="#collections" class="bg-[#991b1b] text-white px-10 py-4 font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-black transition-all">Explore Archives</a>
                 <a href="#about" class="border border-gray-200 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-gray-50 transition">The Mandate</a>
+            </div>
+
+            <div class="mt-16 flex flex-col items-center gap-2 scroll-hint opacity-40">
+                <span class="text-[9px] font-bold tracking-[0.5em] uppercase text-gray-400">Scroll to Explore</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-[#991b1b] to-transparent"></div>
             </div>
         </section>
 
