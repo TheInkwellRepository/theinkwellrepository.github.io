@@ -7,13 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Bright Gallery Aesthetic */
+        /* Institutional Gallery Aesthetic */
         body { font-family: 'Inter', sans-serif; background-color: #f9f7f2; color: #1a1a1a; margin: 0; padding: 0; }
         h1, h2, .brand-font { font-family: 'Playfair Display', serif; }
         
         .site-container { overflow-x: hidden; max-width: 100vw; position: relative; }
         
-        /* Clean, Bright Header */
         .glass-header { 
             backdrop-filter: blur(12px); 
             background-color: rgba(255, 255, 255, 0.8); 
@@ -21,12 +20,10 @@
             border-bottom: 1px solid rgba(153, 27, 27, 0.1);
         }
 
-        /* Your Manual Amber Halo Adjustment */
         .hero-bright { 
             background: radial-gradient(circle at 50% 30%, rgba(218, 165, 32, 0.3) 0%, rgba(249, 247, 242, 1) 90%); 
         }
 
-        /* Enhanced Scroll Animation */
         @keyframes bounce-subtle {
             0%, 100% { transform: translateY(0); opacity: 0.6; }
             50% { transform: translateY(15px); opacity: 1; }
@@ -35,11 +32,6 @@
             animation: bounce-subtle 2.5s infinite ease-in-out;
         }
 
-        /* The Gold & Red Accents */
-        .text-gold { color: #b8860b; }
-        .bg-wax-red { background-color: #991b1b; }
-        .border-gold { border-color: rgba(184, 134, 11, 0.3); }
-        
         .card-hover {
             background: white;
             border: 1px solid rgba(0,0,0,0.05);
@@ -51,6 +43,16 @@
             border-color: #991b1b;
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(153, 27, 27, 0.1);
+        }
+
+        /* Formal Image Transition */
+        .archive-img {
+            filter: grayscale(100%);
+            transition: all 0.8s ease;
+        }
+        .card-hover:hover .archive-img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
         }
     </style>
 </head>
@@ -66,11 +68,30 @@
             },
             aboutHtml: `
                 <p class="mb-4">The Inkwell Repository serves as a centralized hub for creative infrastructure. We provide the systems necessary for independent brands to transition from development to professional market distribution.</p>
+                <p>By treating our initial ventures as active case studies, we model the exact distribution and technical frameworks we offer to our clients.</p>
             `,
             collections: [
-                { title: "Literary Distribution", category: "DISTRIBUTION", desc: "Centralized archival and marketplace infrastructure.", link: "#" },
-                { title: "Digital Assets", category: "ARCHIVE", desc: "Secure repositories for high-fidelity creative blueprints.", link: "#" },
-                { title: "Infrastructure", category: "SYSTEMS", desc: "Logistical management for creative startups.", link: "#" }
+                { 
+                    title: "The Anatomia Archive", 
+                    category: "DISTRIBUTION", 
+                    desc: "Strategic deployment of anatomical oddities and Victorian Gothic narratives via Substack.", 
+                    img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
+                    link: "https://anatomiaarchive.substack.com" 
+                },
+                { 
+                    title: "Miasma Inoculus", 
+                    category: "ARCHIVE", 
+                    desc: "A technical incubation framework and repository for horror micro-fiction development.", 
+                    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+                    link: "https://miasma-inoculus.github.io" 
+                },
+                { 
+                    title: "Masqueraide Workshop", 
+                    category: "SYSTEMS", 
+                    desc: "Logistical infrastructure for educational tutorials and immersive workshop experiences.", 
+                    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+                    link: "https://masqworks.github.io" 
+                }
             ]
         };
     </script>
@@ -100,7 +121,6 @@
         <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
             <img id="main-seal" src="" alt="Master Seal" class="w-44 h-44 md:w-60 md:h-60 mb-4 drop-shadow-xl">
             <h1 class="text-3xl md:text-5xl font-bold mt-0 mb-6 tracking-[0.2em] uppercase text-[#1a1a1a] leading-tight" id="hero-title"></h1>
-
             <p class="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl font-light italic" id="hero-subtitle"></p>
             
             <div class="flex gap-4">
@@ -140,7 +160,7 @@
             const card = `
                 <div class="card-hover p-2">
                     <div class="aspect-[4/5] bg-gray-100 mb-6 overflow-hidden">
-                        <img src="https://placehold.co/600x750/f0f0f0/991b1b?text=${item.category}" class="w-full h-full object-cover">
+                        <img src="${item.img}" class="archive-img w-full h-full object-cover">
                     </div>
                     <div class="p-6 text-center">
                         <span class="text-[9px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
