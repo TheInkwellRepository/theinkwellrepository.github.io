@@ -26,13 +26,13 @@
             background: radial-gradient(circle at 50% 30%, rgba(218, 165, 32, 0.3) 0%, rgba(249, 247, 242, 1) 90%); 
         }
 
-        /* Scroll Animation */
+        /* Enhanced Scroll Animation */
         @keyframes bounce-subtle {
-            0%, 100% { transform: translateY(0); opacity: 0.3; }
-            50% { transform: translateY(10px); opacity: 0.8; }
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(15px); opacity: 1; }
         }
         .scroll-hint {
-            animation: bounce-subtle 2s infinite ease-in-out;
+            animation: bounce-subtle 2.5s infinite ease-in-out;
         }
 
         /* The Gold & Red Accents */
@@ -97,7 +97,7 @@
             <div class="mt-auto opacity-20 text-[10px] tracking-[0.4em] uppercase font-light">Infrastructure for Stewardship</div>
         </div>
 
-        <section class="hero-bright min-h-[80vh] flex flex-col items-center justify-center text-center px-6 py-20">
+        <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
             <img id="main-seal" src="" alt="Master Seal" class="w-44 h-44 md:w-60 md:h-60 mb-4 drop-shadow-xl">
             <h1 class="text-3xl md:text-5xl font-bold mt-0 mb-6 tracking-[0.2em] uppercase text-[#1a1a1a] leading-tight" id="hero-title"></h1>
 
@@ -108,9 +108,9 @@
                 <a href="#about" class="border border-gray-200 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-gray-50 transition">The Mandate</a>
             </div>
 
-            <div class="mt-16 flex flex-col items-center gap-2 scroll-hint opacity-40">
-                <span class="text-[9px] font-bold tracking-[0.5em] uppercase text-gray-400">Scroll to Explore</span>
-                <div class="w-[1px] h-12 bg-gradient-to-b from-[#991b1b] to-transparent"></div>
+            <div class="mt-20 flex flex-col items-center gap-4 scroll-hint">
+                <span class="text-[10px] font-bold tracking-[0.6em] uppercase text-gray-500">Scroll to Explore</span>
+                <div class="w-[1.5px] h-24 bg-gradient-to-b from-transparent via-[#991b1b]/60 to-[#7f1d1d]"></div>
             </div>
         </section>
 
