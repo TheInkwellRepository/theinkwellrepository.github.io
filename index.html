@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>The Inkwell Repository</title>
+    <title>The Inkwell Repository | Strategic Stewardship</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -45,7 +45,6 @@
             box-shadow: 0 12px 30px rgba(153, 27, 27, 0.1);
         }
 
-        /* Formal Image Transition */
         .archive-img {
             filter: grayscale(100%);
             transition: all 0.8s ease;
@@ -63,34 +62,41 @@
             logoSrc: "./red-wax-seal.png",
             hero: {
                 title: "The Inkwell Repository",
-                subtitle: "Strategic Distribution. Creative Stewardship.",
-                body: "Operational frameworks for independent brands."
+                subtitle: "Strategic Brand Management. Professional Distribution.",
+                body: "Providing the essential infrastructure for independent creators."
             },
             aboutHtml: `
-                <p class="mb-4">The Inkwell Repository serves as a centralized hub for creative infrastructure. We provide the systems necessary for independent brands to transition from development to professional market distribution.</p>
-                <p>By treating our initial ventures as active case studies, we model the exact distribution and technical frameworks we offer to our clients.</p>
+                <p class="mb-4">The Inkwell Repository is a centralized hub for managing and scaling independent ventures. We specialize in creative stewardship—ensuring that your brand stays secure, organized, and professionally distributed.</p>
+                <p>We treat our own projects as active case studies. By building the systems for our own brands first, we provide our clients with proven, real-world frameworks for digital and physical growth.</p>
             `,
             collections: [
                 { 
                     title: "The Anatomia Archive", 
-                    category: "DISTRIBUTION", 
-                    desc: "Strategic deployment of anatomical oddities and Victorian Gothic narratives via Substack.", 
+                    category: "CONTENT DISTRIBUTION", 
+                    desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
                     img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
                     link: "https://anatomiaarchive.substack.com" 
                 },
                 { 
                     title: "Miasma Inoculus", 
-                    category: "ARCHIVE", 
-                    desc: "A technical incubation framework and repository for horror micro-fiction development.", 
+                    category: "PROJECT INCUBATION", 
+                    desc: "The primary development site for experimental micro-fiction, serving as a blueprint for technical brand hosting.", 
                     img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
                     link: "https://miasma-inoculus.github.io" 
                 },
                 { 
                     title: "Masqueraide Workshop", 
-                    category: "SYSTEMS", 
-                    desc: "Logistical infrastructure for educational tutorials and immersive workshop experiences.", 
+                    category: "OPERATIONAL SYSTEMS", 
+                    desc: "The logistical backbone for professional educational content and cinematic horror asset production.", 
                     img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
                     link: "https://masqworks.github.io" 
+                },
+                { 
+                    title: "The Digital Vault", 
+                    category: "STAKEHOLDER ASSETS", 
+                    desc: "Access our professional suite of brand audits, project manifestos, and distribution planners.", 
+                    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
+                    link: "#" 
                 }
             ]
         };
@@ -100,22 +106,22 @@
         <header class="glass-header sticky top-0 w-full px-6 py-4 flex justify-between items-center">
             <span class="brand-font font-bold tracking-tight text-xl text-[#991b1b]">Established 2026</span>
             <nav class="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.2em] text-gray-500">
-                <a href="#about" class="hover:text-red-800 transition">ABOUT</a>
-                <a href="#collections" class="hover:text-red-800 transition">COLLECTIONS</a>
+                <a href="#about" class="hover:text-red-800 transition">THE MANDATE</a>
+                <a href="#collections" class="hover:text-red-800 transition">HOLDINGS</a>
                 <a href="#contact" class="hover:text-red-800 transition">CONTACT</a>
             </nav>
             <button class="md:hidden text-gray-800 text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
         </header>
 
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-[#0f0f0f] z-[110] flex flex-col p-10 gap-6 text-2xl font-bold text-white">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-[#f9f7f2] z-[110] flex flex-col p-10 gap-6 text-2xl font-bold text-[#1a1a1a]">
             <div class="flex justify-between items-center mb-10">
                 <span class="brand-font text-[#991b1b] text-xl">The Repository</span>
                 <button class="text-xs tracking-widest opacity-50" onclick="document.getElementById('mobile-menu').classList.add('hidden')">CLOSE [X]</button>
             </div>
-            <a href="#about" class="hover:text-red-800 transition uppercase tracking-tighter" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
-            <a href="#collections" class="hover:text-red-800 transition uppercase tracking-tighter" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Collections</a>
+            <a href="#about" class="hover:text-red-800 transition uppercase tracking-tighter" onclick="document.getElementById('mobile-menu').classList.add('hidden')">The Mandate</a>
+            <a href="#collections" class="hover:text-red-800 transition uppercase tracking-tighter" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Holdings</a>
             <a href="#contact" class="hover:text-red-800 transition uppercase tracking-tighter" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
-            <div class="mt-auto opacity-20 text-[10px] tracking-[0.4em] uppercase font-light">Infrastructure for Stewardship</div>
+            <div class="mt-auto opacity-40 text-[10px] tracking-[0.4em] uppercase font-light">Infrastructure for Stewardship</div>
         </div>
 
         <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
@@ -124,8 +130,8 @@
             <p class="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl font-light italic" id="hero-subtitle"></p>
             
             <div class="flex gap-4">
-                <a href="#collections" class="bg-[#991b1b] text-white px-10 py-4 font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-black transition-all">Explore Archives</a>
-                <a href="#about" class="border border-gray-200 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-gray-50 transition">The Mandate</a>
+                <a href="#collections" class="bg-[#991b1b] text-white px-10 py-4 font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-black transition-all">Explore Holdings</a>
+                <a href="#about" class="border border-gray-200 px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-gray-50 transition">View Mandate</a>
             </div>
 
             <div class="mt-20 flex flex-col items-center gap-4 scroll-hint">
@@ -136,16 +142,17 @@
 
         <section id="collections" class="max-w-7xl mx-auto px-6 py-24 bg-white">
             <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#b8860b] mb-16 uppercase text-center">Institutional Holdings</h2>
-            <div id="grid-container" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
+            <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
         </section>
 
-        <section id="about" class="max-w-4xl mx-auto px-6 py-24">
+        <section id="about" class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-100">
             <h2 class="brand-font text-3xl font-bold mb-8 text-[#991b1b]">The Mandate</h2>
             <div id="about-content" class="text-xl text-gray-600 leading-relaxed font-light"></div>
         </section>
 
         <footer class="p-12 border-t border-gray-100 text-center text-gray-400 text-[10px] tracking-[0.3em] uppercase">
             <p>&copy; 2026 The Inkwell Repository. All Rights Reserved.</p>
+            <p class="mt-2 text-[8px] opacity-50">Operational Oversight & Strategic Distribution</p>
         </footer>
     </div>
 
@@ -158,15 +165,17 @@
         const grid = document.getElementById('grid-container');
         REPOSITORY_DATA.collections.forEach(item => {
             const card = `
-                <div class="card-hover p-2">
-                    <div class="aspect-[4/5] bg-gray-100 mb-6 overflow-hidden">
+                <div class="card-hover p-2 flex flex-col">
+                    <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
                         <img src="${item.img}" class="archive-img w-full h-full object-cover">
                     </div>
-                    <div class="p-6 text-center">
-                        <span class="text-[9px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
-                        <h3 class="brand-font text-2xl font-bold mt-2 mb-4">${item.title}</h3>
-                        <p class="text-sm text-gray-500 mb-8 font-light">${item.desc}</p>
-                        <a href="${item.link}" class="inline-block text-[10px] font-bold tracking-widest border-b-2 border-[#991b1b] pb-1 hover:text-[#991b1b] transition-all uppercase">Enter Repository</a>
+                    <div class="p-4 text-center flex-grow">
+                        <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
+                        <h3 class="brand-font text-xl font-bold mt-2 mb-3">${item.title}</h3>
+                        <p class="text-xs text-gray-500 mb-6 font-light leading-relaxed">${item.desc}</p>
+                    </div>
+                    <div class="pb-6 text-center">
+                        <a href="${item.link}" class="inline-block text-[9px] font-bold tracking-widest border-b-2 border-[#991b1b] pb-1 hover:text-[#991b1b] transition-all uppercase">Enter Repository</a>
                     </div>
                 </div>
             `;
