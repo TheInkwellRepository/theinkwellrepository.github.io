@@ -32,18 +32,6 @@
             animation: bounce-subtle 2.5s infinite ease-in-out;
         }
 
-        /* The Automatic Transition: Gray -> Color & Small Zoom */
-        @keyframes revealAndZoom {
-            0% { 
-                filter: grayscale(100%); 
-                transform: scale(1.0);
-            }
-            100% { 
-                filter: grayscale(0%); 
-                transform: scale(1.05); /* The small zoom-in on load */
-            }
-        }
-
         .card-hover {
             background: white;
             border: 1px solid rgba(0,0,0,0.05);
@@ -58,19 +46,12 @@
         }
 
         .archive-img {
-            /* Forced start state so it doesn't flash color */
-            filter: grayscale(100%);
-            transform: scale(1.0);
-            /* This triggers on browser load */
-            animation: revealAndZoom 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            transition: transform 0.8s ease; /* For the hover state below */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
-        /* Optional: Added extra subtle zoom if they actually do touch/hover after load */
-        .card-hover:hover .archive-img {
-            transform: scale(1.08);
-        }
-
         /* Video Section Specifics */
         .blueprint-row:nth-child(even) { flex-direction: row-reverse; }
         .blueprint-video { width: 100%; height: 100%; object-fit: cover; }
@@ -238,7 +219,7 @@
             const card = `
                 <div class="card-hover p-2 flex flex-col">
                     <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
-                        <img src="${item.img}" class="archive-img w-full h-full object-cover">
+                        <img src="${item.img}" class="archive-img">
                     </div>
                     <div class="p-4 text-center flex-grow">
                         <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
