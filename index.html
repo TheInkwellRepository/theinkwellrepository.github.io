@@ -143,6 +143,14 @@
     </script>
 
     <div class="site-container">
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-[#f9f7f2] z-[200] flex flex-col items-center justify-center gap-8">
+            <button class="absolute top-6 right-6 text-3xl text-[#991b1b]" onclick="toggleMenu()">✕</button>
+            <a href="#about" class="brand-font text-2xl tracking-widest hover:text-[#991b1b]" onclick="toggleMenu()">THE MANDATE</a>
+            <a href="#collections" class="brand-font text-2xl tracking-widest hover:text-[#991b1b]" onclick="toggleMenu()">HOLDINGS</a>
+            <a href="#blueprints" class="brand-font text-2xl tracking-widest hover:text-[#991b1b]" onclick="toggleMenu()">BLUEPRINTS</a>
+            <a href="#contact" class="brand-font text-2xl tracking-widest hover:text-[#991b1b]" onclick="toggleMenu()">CONTACT</a>
+        </div>
+
         <header class="glass-header sticky top-0 w-full px-6 py-4 flex justify-between items-center">
             <span class="brand-font font-bold tracking-tight text-xl text-[#991b1b]">Established 2026</span>
             <nav class="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.2em] text-gray-500">
@@ -151,7 +159,7 @@
                 <a href="#blueprints" class="hover:text-red-800 transition">BLUEPRINTS</a>
                 <a href="#contact" class="hover:text-red-800 transition">CONTACT</a>
             </nav>
-            <button class="md:hidden text-gray-800 text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
+            <button class="md:hidden text-gray-800 text-2xl" onclick="toggleMenu()">☰</button>
         </header>
 
         <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
@@ -199,6 +207,12 @@
     </div>
 
     <script>
+        // Menu Toggle Logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
         // Hero & Header Init
         document.getElementById('hero-title').innerText = REPOSITORY_DATA.hero.title;
         document.getElementById('hero-subtitle').innerText = REPOSITORY_DATA.hero.subtitle;
