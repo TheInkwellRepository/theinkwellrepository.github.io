@@ -50,6 +50,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            background-color: #f3f4f6;
         }
         
         /* Video Section Specifics */
@@ -112,28 +113,28 @@
                     title: "The Anatomia Archive", 
                     category: "CONTENT DISTRIBUTION", 
                     desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
-                    img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
+                    img: "anatomia-holding-cover.jpg",
                     link: "https://anatomiaarchive.substack.com" 
                 },
                 { 
                     title: "Miasma Inoculus", 
                     category: "PROJECT INCUBATION", 
                     desc: "The primary development site for experimental micro-fiction, serving as a blueprint for technical brand hosting.", 
-                    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+                    img: "miasma-holding-cover.jpg",
                     link: "https://miasma-inoculus.github.io" 
                 },
                 { 
                     title: "Masqueraide Workshop", 
                     category: "OPERATIONAL SYSTEMS", 
                     desc: "The logistical backbone for professional educational content and cinematic horror asset production.", 
-                    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+                    img: "masqueraide-holding-cover.jpg",
                     link: "https://masqworks.github.io" 
                 },
                 { 
                     title: "The Digital Vault", 
                     category: "STAKEHOLDER ASSETS", 
                     desc: "Access our professional suite of brand audits, project manifestos, and distribution planners.", 
-                    img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
+                    img: "digital-vault-cover.jpg",
                     link: "#blueprints" 
                 }
             ]
@@ -219,7 +220,7 @@
             const card = `
                 <div class="card-hover p-2 flex flex-col">
                     <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
-                        <img src="${item.img}" class="archive-img">
+                        <img src="${item.img}" class="archive-img" loading="lazy" decoding="async">
                     </div>
                     <div class="p-4 text-center flex-grow">
                         <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
