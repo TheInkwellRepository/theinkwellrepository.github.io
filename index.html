@@ -32,6 +32,12 @@
             animation: bounce-subtle 2.5s infinite ease-in-out;
         }
 
+        /* Automatic Reveal Animation */
+        @keyframes revealColor {
+            0% { filter: grayscale(100%); }
+            100% { filter: grayscale(0%); }
+        }
+
         .card-hover {
             background: white;
             border: 1px solid rgba(0,0,0,0.05);
@@ -46,11 +52,12 @@
         }
 
         .archive-img {
-            filter: grayscale(100%);
-            transition: all 0.8s ease;
+            filter: grayscale(0%); /* Ends at color */
+            animation: revealColor 2.5s ease-out forwards; /* Plays once on load */
+            transition: transform 0.8s ease;
         }
+        
         .card-hover:hover .archive-img {
-            filter: grayscale(0%);
             transform: scale(1.03);
         }
 
