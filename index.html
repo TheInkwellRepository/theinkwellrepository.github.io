@@ -32,10 +32,16 @@
             animation: bounce-subtle 2.5s infinite ease-in-out;
         }
 
-        /* Automatic Reveal Animation */
-        @keyframes revealColor {
-            0% { filter: grayscale(100%); }
-            100% { filter: grayscale(0%); }
+        /* The Automatic Transition: Gray -> Color & Small Zoom */
+        @keyframes revealAndZoom {
+            0% { 
+                filter: grayscale(100%); 
+                transform: scale(1.0);
+            }
+            100% { 
+                filter: grayscale(0%); 
+                transform: scale(1.05); /* The small zoom-in on load */
+            }
         }
 
         .card-hover {
@@ -52,13 +58,17 @@
         }
 
         .archive-img {
-            filter: grayscale(0%); /* Ends at color */
-            animation: revealColor 2.5s ease-out forwards; /* Plays once on load */
-            transition: transform 0.8s ease;
+            /* Forced start state so it doesn't flash color */
+            filter: grayscale(100%);
+            transform: scale(1.0);
+            /* This triggers on browser load */
+            animation: revealAndZoom 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            transition: transform 0.8s ease; /* For the hover state below */
         }
         
+        /* Optional: Added extra subtle zoom if they actually do touch/hover after load */
         .card-hover:hover .archive-img {
-            transform: scale(1.03);
+            transform: scale(1.08);
         }
 
         /* Video Section Specifics */
@@ -214,18 +224,15 @@
     </div>
 
     <script>
-        // Menu Toggle Logic
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // Hero & Header Init
         document.getElementById('hero-title').innerText = REPOSITORY_DATA.hero.title;
         document.getElementById('hero-subtitle').innerText = REPOSITORY_DATA.hero.subtitle;
         document.getElementById('main-seal').src = REPOSITORY_DATA.logoSrc;
 
-        // Holdings Grid Injection
         const grid = document.getElementById('grid-container');
         REPOSITORY_DATA.collections.forEach(item => {
             const card = `
@@ -246,7 +253,6 @@
             grid.innerHTML += card;
         });
 
-        // Blueprints Injection (Zig-Zag)
         const blueprintsContainer = document.getElementById('blueprints-container');
         REPOSITORY_DATA.blueprints.forEach((bp, index) => {
             const isEven = index % 2 !== 0;
