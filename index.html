@@ -33,17 +33,19 @@
         }
 
         .card-hover {
-            background: e8e2d2;
-            border: 1px solid rgba(0,0,0,0.1);
+            background: #e8e2d2; /* Added the # to activate the color */
+            border: 1px solid rgba(0,0,0,0.3); /* Darkened from 0.1 to 0.3 for a visible line */
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .card-hover:hover {
+            background: #ffffff; /* Optional: pops to white when active */
             border-color: #991b1b;
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(153, 27, 27, 0.15);
         }
+
 
         .archive-img {
             width: 100%;
