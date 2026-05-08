@@ -12,16 +12,20 @@
         .site-container { overflow-x: hidden; max-width: 100vw; position: relative; }
         
         .glass-header { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); z-index: 100; border-bottom: 1px solid rgba(153, 27, 27, 0.1); }
-        .hero-bright { background: radial-gradient(circle at 50% 30%, rgba(218, 165, 32, 0.3) 0%, rgba(249, 247, 242, 1) 90%); }
+        .hero-bright { background: radial-gradient(circle at 50% 30%, rgba(218, 165, 32, 0.15) 0%, rgba(249, 247, 242, 1) 80%); }
+
+        /* Scroll to Explore Animation */
+        @keyframes bounce-subtle { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(10px); opacity: 1; } }
+        .scroll-hint { animation: bounce-subtle 2s infinite ease-in-out; }
 
         .card-hover { background: white; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .card-hover:hover { border-color: #991b1b; transform: translateY(-8px); box-shadow: 0 12px 30px rgba(153, 27, 27, 0.1); }
-        .archive-img { filter: grayscale(100%); transition: all 0.8s ease; }
-        .card-hover:hover .archive-img { filter: grayscale(0%); transform: scale(1.03); }
-
+        
         .blueprint-video { width: 100%; height: 100%; object-fit: cover; background-color: #000; }
-        .btn-crimson { background-color: #991b1b; transition: all 0.3s ease; display: inline-block; width: 100%; text-align: center; }
+        .btn-crimson { background-color: #991b1b; transition: all 0.3s ease; }
         .btn-crimson:hover { background-color: #000; transform: translateY(-2px); }
+        .btn-outline { border: 1px solid rgba(153, 27, 27, 0.2); transition: all 0.3s ease; }
+        .btn-outline:hover { background-color: #f3f4f6; }
     </style>
 </head>
 <body>
@@ -30,21 +34,21 @@
             logoSrc: "./red-wax-seal.png",
             hero: {
                 title: "The Inkwell Repository",
-                subtitle: "Strategic Brand Management. Professional Distribution.",
+                subtitle: "Strategic Distribution. Creative Stewardship.",
             },
             blueprints: [
-                { title: "Brand Clarity & Protection", video: "brand-clarity-shield.mp4", desc: "Before you scale, you have to be sure of your footing. This foundational audit helps you strip away the noise and protect the work you've built." },
-                { title: "The Stakeholder Update", video: "stakeholder-typewriter.mp4", desc: "Correspondence has changed, but the power of a personal update hasn't. Turn your followers into true partners by sharing your journey." },
-                { title: "The Social Media Multiplier", video: "social-multiplier-globe.mp4", desc: "One creative session. One week of content. Zero burnout. A mechanical system for turning quiet work into a loud presence." },
-                { title: "The Client Experience", video: "client-experience-trust.mp4", desc: "A handshake used to be a contract. In the digital age, that personal commitment is your greatest advantage. Build a system of stewardship." },
-                { title: "The Consistency Calendar", video: "consistency-grind.mp4", desc: "Success isn't about greatness; it's about consistency. Tactical planning for flipping the heavy days and maintaining momentum." },
-                { title: "The Professional Pivot", video: "professional-pivot-horizon.mp4", desc: "You aren't starting from scratch; you're starting from experience. Every bridge you've crossed prepared you for the new horizon." }
+                { title: "Brand Clarity & Protection", video: "brand-clarity-shield.mp4", desc: "Before you scale, you have to be sure of your footing. This foundational audit helps you strip away the noise." },
+                { title: "The Stakeholder Update", video: "stakeholder-typewriter.mp4", desc: "Turn your followers into true partners by sharing your journey—the wins and the vision." },
+                { title: "The Social Media Multiplier", video: "social-multiplier-globe.mp4", desc: "A mechanical system for turning your quiet work into a loud presence without losing focus." },
+                { title: "The Client Experience", video: "client-experience-trust.mp4", desc: "Build a system that makes every client feel like your only client through dedicated stewardship." },
+                { title: "The Consistency Calendar", video: "consistency-grind.mp4", desc: "Success is about consistency. Break down the heavy lifting of the daily grind." },
+                { title: "The Professional Pivot", video: "professional-pivot-horizon.mp4", desc: "Every bridge you've crossed has prepared you for the new horizon you're about to open." }
             ],
             collections: [
                 { title: "The Anatomia Archive", category: "CONTENT DISTRIBUTION", desc: "A Victorian Gothic narrative series.", img: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80", link: "https://anatomiaarchive.substack.com" },
                 { title: "Miasma Inoculus", category: "PROJECT INCUBATION", desc: "Development site for experimental micro-fiction.", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80", link: "https://miasma-inoculus.github.io" },
-                { title: "Masqueraide Workshop", category: "OPERATIONAL SYSTEMS", desc: "Logistical backbone for cinematic asset production.", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80", link: "https://masqworks.github.io" },
-                { title: "The Digital Vault", category: "STAKEHOLDER ASSETS", desc: "Professional suite of brand audits.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80", link: "#blueprints" }
+                { title: "Masqueraide Workshop", category: "OPERATIONAL SYSTEMS", desc: "Logistical backbone for cinematic horror asset production.", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80", link: "https://masqworks.github.io" },
+                { title: "The Digital Vault", category: "STAKEHOLDER ASSETS", desc: "Access our professional suite of brand audits.", img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80", link: "#blueprints" }
             ]
         };
     </script>
@@ -52,82 +56,87 @@
     <div class="site-container">
         <header class="glass-header sticky top-0 w-full px-6 py-4 flex justify-between items-center">
             <span class="brand-font font-bold tracking-tight text-xl text-[#991b1b]">Established 2026</span>
-            <nav class="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.2em] text-gray-500">
-                <a href="#about" class="hover:text-red-800 transition">THE MANDATE</a>
-                <a href="#collections" class="hover:text-red-800 transition">HOLDINGS</a>
-                <a href="#blueprints" class="hover:text-red-800 transition">BLUEPRINTS</a>
-            </nav>
+            <div class="w-8 h-8 flex flex-col justify-around cursor-pointer md:hidden">
+                <div class="h-0.5 w-full bg-[#991b1b]"></div>
+                <div class="h-0.5 w-full bg-[#991b1b]"></div>
+                <div class="h-0.5 w-full bg-[#991b1b]"></div>
+            </div>
         </header>
 
-        <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
-            <img id="main-seal" src="" alt="Master Seal" class="w-44 h-44 mb-4 drop-shadow-xl">
-            <h1 class="text-3xl md:text-5xl font-bold mt-0 mb-6 tracking-[0.2em] uppercase" id="hero-title"></h1>
-            <p class="text-lg md:text-2xl text-gray-500 mb-10 max-w-2xl font-light italic" id="hero-subtitle"></p>
-            <a href="#blueprints" class="bg-[#991b1b] text-white px-10 py-4 font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-black transition-all">Secure the Blueprints</a>
+        <section class="hero-bright min-h-screen flex flex-col items-center justify-center text-center px-6">
+            <img src="./red-wax-seal.png" alt="Seal" class="w-40 h-40 mb-8 drop-shadow-2xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-[0.15em] uppercase brand-font" id="hero-title">The Inkwell Repository</h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl font-light italic" id="hero-subtitle">Strategic Distribution. Creative Stewardship.</p>
+            
+            <div class="flex flex-col md:flex-row gap-4 mb-20 w-full max-w-md">
+                <a href="#collections" class="btn-crimson text-white flex-1 py-5 font-bold text-xs uppercase tracking-widest shadow-xl">Explore Archives</a>
+                <a href="#about" class="btn-outline bg-white/50 text-gray-800 flex-1 py-5 font-bold text-xs uppercase tracking-widest">The Mandate</a>
+            </div>
+
+            <div class="scroll-hint flex flex-col items-center gap-2">
+                <span class="text-[10px] tracking-[0.4em] text-gray-400 uppercase">Scroll to Explore</span>
+                <div class="w-px h-12 bg-gradient-to-b from-[#991b1b] to-transparent"></div>
+            </div>
         </section>
 
-        <section id="collections" class="max-w-7xl mx-auto px-6 py-24 bg-white">
+        <section id="collections" class="max-w-7xl mx-auto px-6 py-32">
             <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#b8860b] mb-16 uppercase text-center">Institutional Holdings</h2>
             <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
         </section>
 
-        <section id="blueprints" class="bg-[#fcfaf5] py-24 border-t border-gray-100">
+        <section id="blueprints" class="bg-white py-32 border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-6">
                 <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#991b1b] mb-24 uppercase text-center">The Core Six Blueprints</h2>
-                <div id="blueprints-container" class="flex flex-col gap-32"></div>
+                <div id="blueprints-container" class="flex flex-col gap-40"></div>
             </div>
         </section>
 
-        <section id="about" class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-100 text-center">
-            <h2 class="brand-font text-3xl font-bold mb-8 text-[#991b1b]">The Mandate</h2>
-            <div id="about-content" class="text-xl text-gray-600 leading-relaxed font-light">
-                <p>The Inkwell Repository is a centralized hub for managing and scaling independent ventures. We specialize in creative stewardship—ensuring that your brand stays secure, organized, and professionally distributed.</p>
-            </div>
+        <section id="about" class="max-w-4xl mx-auto px-6 py-32 text-center">
+            <h2 class="brand-font text-4xl font-bold mb-10 text-[#991b1b]">The Mandate</h2>
+            <p class="text-xl text-gray-600 leading-relaxed font-light">The Inkwell Repository is a centralized hub for managing and scaling independent ventures. We specialize in creative stewardship—ensuring that your brand stays secure, organized, and professionally distributed.</p>
         </section>
 
-        <footer class="p-12 border-t border-gray-100 text-center text-gray-400 text-[10px] tracking-[0.3em] uppercase">
-            <p>&copy; 2026 The Inkwell Repository.</p>
+        <footer class="p-16 border-t border-gray-100 text-center text-gray-400 text-[10px] tracking-[0.4em] uppercase">
+            &copy; 2026 The Inkwell Repository.
         </footer>
     </div>
 
     <script>
-        document.getElementById('hero-title').innerText = REPOSITORY_DATA.hero.title;
-        document.getElementById('hero-subtitle').innerText = REPOSITORY_DATA.hero.subtitle;
-        document.getElementById('main-seal').src = REPOSITORY_DATA.logoSrc;
-
+        // Render Holdings
         const grid = document.getElementById('grid-container');
         REPOSITORY_DATA.collections.forEach(item => {
             grid.innerHTML += `
-                <div class="card-hover p-2 flex flex-col">
-                    <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
-                        <img src="${item.img}" class="archive-img w-full h-full object-cover">
+                <a href="${item.link}" class="card-hover p-2 flex flex-col group">
+                    <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden relative">
+                        <img src="${item.img}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
                     </div>
                     <div class="p-4 text-center">
                         <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
-                        <h3 class="brand-font text-xl font-bold mt-2 mb-3">${item.title}</h3>
-                        <p class="text-xs text-gray-500 mb-6 font-light">${item.desc}</p>
+                        <h3 class="brand-font text-xl font-bold mt-2 mb-2">${item.title}</h3>
+                        <p class="text-xs text-gray-500 font-light">${item.desc}</p>
                     </div>
-                </div>`;
+                </a>`;
         });
 
+        // Render Blueprints (Zig-Zag)
         const blueprintsContainer = document.getElementById('blueprints-container');
         REPOSITORY_DATA.blueprints.forEach((bp, index) => {
             const isEven = index % 2 !== 0;
             const rowClass = isEven ? 'md:flex-row-reverse' : 'md:flex-row';
             
             blueprintsContainer.innerHTML += `
-                <div class="flex flex-col ${rowClass} items-center gap-12 lg:gap-20">
-                    <div class="w-full md:w-3/5 shadow-xl bg-black aspect-video overflow-hidden border-4 border-white">
+                <div class="flex flex-col ${rowClass} items-center gap-16 lg:gap-24">
+                    <div class="w-full md:w-3/5 shadow-2xl bg-black aspect-video overflow-hidden border-8 border-white">
                         <video class="blueprint-video" autoplay muted loop playsinline>
                             <source src="${bp.video}" type="video/mp4">
                         </video>
                     </div>
-                    <div class="w-full md:w-2/5 flex flex-col items-start text-left">
-                        <span class="text-[9px] font-bold tracking-[0.4em] text-[#b8860b] uppercase mb-4">Module 0${index + 1}</span>
-                        <h3 class="text-2xl lg:text-3xl font-bold mb-4 brand-font">${bp.title}</h3>
-                        <p class="text-gray-500 text-sm font-light leading-relaxed mb-8">${bp.desc}</p>
+                    <div class="w-full md:w-2/5 flex flex-col items-start px-4">
+                        <span class="text-[10px] font-bold tracking-[0.4em] text-[#b8860b] uppercase mb-4">Module 0${index + 1}</span>
+                        <h3 class="text-3xl font-bold mb-6 brand-font">${bp.title}</h3>
+                        <p class="text-gray-500 text-base font-light leading-relaxed mb-10">${bp.desc}</p>
                         <div class="w-full flex flex-col gap-4">
-                            <a href="#" class="btn-crimson text-white px-8 py-4 text-[10px] font-bold uppercase tracking-widest shadow-md">Secure the Blueprint</a>
+                            <a href="#" class="btn-crimson text-center text-white py-5 text-xs font-bold uppercase tracking-widest shadow-lg">Secure the Blueprint</a>
                             <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] text-center italic">Institutional Document Access</p>
                         </div>
                     </div>
