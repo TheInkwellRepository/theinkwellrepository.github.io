@@ -139,7 +139,14 @@
                     img: "digital-vault-cover.jpg",
                     link: "#blueprints" 
                 }
-            ]
+            ],
+            dispatch: {
+                title: "The Inkwell Dispatch",
+                category: "CORRESPONDENCE",
+                desc: "Official institutional updates and tactical blueprints for the Foundation Suite, distributed via Substack.",
+                img: "dispatch-holding-cover.jpg",
+                link: "#" // Fill in your Substack link here later
+            }
         };
     </script>
 
@@ -198,6 +205,12 @@
     </div>
 </section>
 
+        <section id="dispatch-holding" class="bg-white py-12 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 flex justify-center">
+                <div id="dispatch-container" class="w-full md:w-1/2 lg:w-1/4">
+                    </div>
+            </div>
+        </section>
 
         <section id="about" class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-100">
             <h2 class="brand-font text-3xl font-bold mb-8 text-[#991b1b]">The Mandate</h2>
@@ -242,6 +255,26 @@
             `;
             grid.innerHTML += card;
         });
+
+        // Inject the single Inkwell Dispatch card
+        const dispatchContainer = document.getElementById('dispatch-container');
+        const item = REPOSITORY_DATA.dispatch;
+        const dispatchCard = `
+            <div class="card-hover p-2 flex flex-col">
+                <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
+                    <img src="${item.img}" class="archive-img" loading="lazy" decoding="async">
+                </div>
+                <div class="p-4 text-center flex-grow">
+                    <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
+                    <h3 class="brand-font text-xl font-bold mt-2 mb-3">${item.title}</h3>
+                    <p class="text-xs text-gray-500 mb-6 font-light leading-relaxed">${item.desc}</p>
+                </div>
+                <div class="pb-6 text-center">
+                    <a href="${item.link}" class="inline-block text-[9px] font-bold tracking-widest border-b-2 border-[#991b1b] pb-1 hover:text-[#991b1b] transition-all uppercase">Enter Repository</a>
+                </div>
+            </div>
+        `;
+        dispatchContainer.innerHTML = dispatchCard;
 
         const blueprintsContainer = document.getElementById('blueprints-container');
         REPOSITORY_DATA.blueprints.forEach((bp, index) => {
