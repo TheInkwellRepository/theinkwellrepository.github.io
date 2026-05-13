@@ -33,19 +33,18 @@
         }
 
         .card-hover {
-            background: #e8e2d2; /* Added the # to activate the color */
-            border: 1px solid rgba(0,0,0,0.3); /* Darkened from 0.1 to 0.3 for a visible line */
+            background: #e8e2d2; 
+            border: 1px solid rgba(0,0,0,0.3); 
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .card-hover:hover {
-            background: #ffffff; /* Optional: pops to white when active */
+            background: #ffffff; 
             border-color: #991b1b;
             transform: translateY(-8px);
             box-shadow: 0 12px 30px rgba(153, 27, 27, 0.15);
         }
-
 
         .archive-img {
             width: 100%;
@@ -55,11 +54,24 @@
             background-color: #f3f4f6;
         }
         
-        /* Video Section Specifics */
         .blueprint-row:nth-child(even) { flex-direction: row-reverse; }
         .blueprint-video { width: 100%; height: 100%; object-fit: cover; }
         .btn-crimson { background-color: #991b1b; transition: all 0.3s ease; }
         .btn-crimson:hover { background-color: #000; transform: translateY(-2px); }
+
+        /* Responsive Grid Logic for 3+2 layout */
+        @media (min-width: 1024px) {
+            #grid-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .grid-item {
+                width: calc(33.333% - 1.5rem);
+                max-width: 350px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,37 +89,43 @@
                     title: "Brand Clarity & Protection",
                     video: "brand-clarity-shield.mp4",
                     desc: "Before you scale, you have to be sure of your footing. This foundational audit helps you strip away the noise and protect the work you've built through precise stewardship.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "Brand-Clarity-Three-Tools-to-Organize-and-Protect-Your-Work.pdf"
                 },
                 {
                     title: "The Stakeholder Update",
                     video: "stakeholder-typewriter.mp4",
                     desc: "Correspondence has changed, but the power of a personal update hasn't. Turn your followers into true partners by sharing your journey—the wins, the hurdles, and the vision.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "The-Stakeholder-Update.pdf"
                 },
                 {
                     title: "The Social Media Multiplier",
                     video: "social-multiplier-globe.mp4",
                     desc: "One creative session. One week of content. Zero burnout. A mechanical system for turning your quiet work into a loud presence without losing your focus.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "The-Social-Media-Multiplier.pdf"
                 },
                 {
                     title: "The Client Experience",
                     video: "client-experience-trust.mp4",
                     desc: "A handshake used to be a contract. In the digital age, that personal commitment is your greatest advantage. Build a system that makes every client feel like your only client.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "The-Client-Experience-Blueprint.pdf"
                 },
                 {
                     title: "The Consistency Calendar",
                     video: "consistency-grind.mp4",
                     desc: "Success isn't about greatness; it's about consistency. This tactical plan breaks down the heavy lifting of the daily grind so you can maintain momentum without burnout.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "Building-momentum-by-showing-up-even-on-the-quiet-days.pdf"
                 },
                 {
                     title: "The Professional Pivot",
                     video: "professional-pivot-horizon.mp4",
                     desc: "You aren't starting from scratch; you're starting from experience. Every bridge you've crossed has prepared you for the new horizon you're about to open.",
-                    cta: "Download Blueprint"
+                    cta: "Download Blueprint",
+                    file: "How-to-change-lanes-without-losing-your-momentum.pdf"
                 }
             ],
             collections: [
@@ -117,6 +135,13 @@
                     desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
                     img: "anatomia-holding-cover.jpg",
                     link: "https://anatomiaarchive.substack.com" 
+                },
+                { 
+                    title: "The Marketing Playbook", 
+                    category: "GROWTH STRATEGY", 
+                    desc: "A 5-part professional series on building, creating, and scaling your brand using 100% free digital infrastructure.", 
+                    img: "playbook-cover.jpg",
+                    link: "playbook.html" 
                 },
                 { 
                     title: "Miasma Inoculus", 
@@ -145,7 +170,7 @@
                 category: "CORRESPONDENCE",
                 desc: "Official institutional updates and tactical blueprints for the Foundation Suite, distributed via Substack.",
                 img: "dispatch-holding-cover.jpg",
-                link: "#" // Fill in your Substack link here later
+                link: "https://theinkwelldispatch.substack.com"
             }
         };
     </script>
@@ -188,27 +213,24 @@
 
         <section id="collections" class="max-w-7xl mx-auto px-6 py-24 bg-white">
             <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#b8860b] mb-24 uppercase text-center">Institutional Holdings</h2>
-            <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+            <div id="grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
-        <section id="blueprints" class="bg-[#fcfaf5] py-24 border-t border-gray-100"> <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-24">
-            <h2 class="text-xs font-bold tracking-[0.5em] text-[#b8860b] uppercase mb-4">
-                Our Core Blueprints
-            </h2>
-            <h3 class="brand-font text-3xl md:text-5xl font-bold text-[#1a1a1a] max-w-4xl mx-auto leading-tight">
-        <span class="text-[#991b1b]">Curated for Winners:</span><br>6 Essential Downloads<br>for<br>Business and Personal Mastery
-            </h3>
-        </div>
-        
-        <div id="blueprints-container" class="flex flex-col gap-32"></div>
-    </div>
-</section>
+        <section id="blueprints" class="bg-[#fcfaf5] py-24 border-t border-gray-100"> 
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-24">
+                    <h2 class="text-xs font-bold tracking-[0.5em] text-[#b8860b] uppercase mb-4">Our Core Blueprints</h2>
+                    <h3 class="brand-font text-3xl md:text-5xl font-bold text-[#1a1a1a] max-w-4xl mx-auto leading-tight">
+                        <span class="text-[#991b1b]">Curated for Winners:</span><br>6 Essential Downloads<br>for<br>Business and Personal Mastery
+                    </h3>
+                </div>
+                <div id="blueprints-container" class="flex flex-col gap-32"></div>
+            </div>
+        </section>
 
         <section id="dispatch-holding" class="bg-white py-12 border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-6 flex justify-center">
-                <div id="dispatch-container" class="w-full md:w-1/2 lg:w-1/4">
-                    </div>
+                <div id="dispatch-container" class="w-full md:w-1/2 lg:w-1/4"></div>
             </div>
         </section>
 
@@ -239,7 +261,7 @@
         const grid = document.getElementById('grid-container');
         REPOSITORY_DATA.collections.forEach(item => {
             const card = `
-                <div class="card-hover p-2 flex flex-col">
+                <div class="grid-item card-hover p-2 flex flex-col">
                     <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
                         <img src="${item.img}" class="archive-img" loading="lazy" decoding="async">
                     </div>
@@ -256,21 +278,20 @@
             grid.innerHTML += card;
         });
 
-        // Inject the single Inkwell Dispatch card
         const dispatchContainer = document.getElementById('dispatch-container');
-        const item = REPOSITORY_DATA.dispatch;
+        const disp = REPOSITORY_DATA.dispatch;
         const dispatchCard = `
             <div class="card-hover p-2 flex flex-col">
                 <div class="aspect-[4/5] bg-gray-100 mb-4 overflow-hidden">
-                    <img src="${item.img}" class="archive-img" loading="lazy" decoding="async">
+                    <img src="${disp.img}" class="archive-img" loading="lazy" decoding="async">
                 </div>
                 <div class="p-4 text-center flex-grow">
-                    <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
-                    <h3 class="brand-font text-xl font-bold mt-2 mb-3">${item.title}</h3>
-                    <p class="text-xs text-gray-500 mb-6 font-light leading-relaxed">${item.desc}</p>
+                    <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${disp.category}</span>
+                    <h3 class="brand-font text-xl font-bold mt-2 mb-3">${disp.title}</h3>
+                    <p class="text-xs text-gray-500 mb-6 font-light leading-relaxed">${disp.desc}</p>
                 </div>
                 <div class="pb-6 text-center">
-                    <a href="${item.link}" class="inline-block text-[9px] font-bold tracking-widest border-b-2 border-[#991b1b] pb-1 hover:text-[#991b1b] transition-all uppercase">Enter Repository</a>
+                    <a href="${disp.link}" class="inline-block text-[9px] font-bold tracking-widest border-b-2 border-[#991b1b] pb-1 hover:text-[#991b1b] transition-all uppercase">Enter Repository</a>
                 </div>
             </div>
         `;
@@ -292,7 +313,7 @@
                         <span class="text-[9px] font-bold tracking-[0.4em] text-[#b8860b] uppercase mb-4">Module 0${index + 1}</span>
                         <h3 class="text-3xl lg:text-4xl font-bold mb-6 brand-font">${bp.title}</h3>
                         <p class="text-gray-600 text-lg font-light leading-relaxed mb-10">${bp.desc}</p>
-                        <a href="#" class="btn-crimson text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest">
+                        <a href="${bp.file}" download class="btn-crimson text-white px-10 py-4 text-[10px] font-bold uppercase tracking-widest">
                             ${bp.cta}
                         </a>
                     </div>
