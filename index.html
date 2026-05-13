@@ -130,18 +130,18 @@
             ],
             collections: [
                 { 
-                    title: "The Anatomia Archive", 
-                    category: "CONTENT DISTRIBUTION", 
-                    desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
-                    img: "anatomia-holding-cover.jpg",
-                    link: "https://anatomiaarchive.substack.com" 
-                },
-                { 
                     title: "The Marketing Playbook", 
                     category: "GROWTH STRATEGY", 
                     desc: "A 5-part professional series on building, creating, and scaling your brand using 100% free digital infrastructure.", 
                     img: "playbook-cover.jpg",
                     link: "playbook.html" 
+                },
+                { 
+                    title: "The Anatomia Archive", 
+                    category: "CONTENT DISTRIBUTION", 
+                    desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
+                    img: "anatomia-holding-cover.jpg",
+                    link: "https://anatomiaarchive.substack.com" 
                 },
                 { 
                     title: "Miasma Inoculus", 
@@ -305,8 +305,9 @@
             const blueprintSection = `
                 <div class="flex flex-col ${rowClass} items-center gap-12 lg:gap-20">
                     <div class="w-full md:w-1/2 shadow-2xl rounded-sm overflow-hidden bg-black aspect-video">
-                        <video class="blueprint-video" autoplay muted loop playsinline>
+                        <video class="blueprint-video" autoplay muted loop playsinline preload="auto">
                             <source src="${bp.video}" type="video/mp4">
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="w-full md:w-1/2 flex flex-col items-start px-4">
