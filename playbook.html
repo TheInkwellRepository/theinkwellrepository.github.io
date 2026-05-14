@@ -14,6 +14,11 @@
         .card-hover:hover { background: #ffffff; border-color: #991b1b; transform: translateY(-5px); }
         .btn-crimson { background-color: #991b1b; transition: all 0.3s ease; }
         .btn-crimson:hover { background-color: #000; }
+        
+        /* Dashboard Styling */
+        .dashboard-container { background-color: #f2eee3; border: 1px solid #2a2a22; }
+        .tab-active { border-bottom: 2px solid #991b1b; color: #1a1a1a; }
+        .tab-inactive { color: #9ca3af; }
     </style>
 </head>
 <body>
@@ -33,7 +38,6 @@
 
         <h2 class="text-xs font-bold tracking-[0.5em] text-[#b8860b] uppercase text-center mb-12">The Marketing Playbook (5-Part Series)</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-            
             <div class="card-hover p-8">
                 <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#b8860b] uppercase">Guide 01</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Brand Foundations</h3><p class="text-sm text-gray-600 mb-8 font-light">Covers mission statements, visual palettes, and brand voice.</p></div>
                 <a href="Guide 1 – Build Your Brand on Social Media Using Free Tools.pdf" download class="btn-crimson text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest">Download Guide 01</a>
@@ -62,8 +66,7 @@
 
         <div id="vault"></div>
         <h2 class="text-xs font-bold tracking-[0.5em] text-[#b8860b] uppercase text-center mb-12">The Foundation Vault (Core Blueprints)</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-            
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
             <div class="card-hover p-8">
                 <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#991b1b] uppercase">Module 01</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Brand Clarity</h3><p class="text-sm text-gray-600 mb-8 font-light">Foundational audit to organize and protect your creative work.</p></div>
                 <a href="Brand-Clarity-Three-Tools-to-Organize-and-Protect-Your-Work.pdf" download class="border-2 border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b] hover:text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest transition-all">Download Module 01</a>
@@ -78,27 +81,145 @@
                 <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#991b1b] uppercase">Module 03</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Content Multiplier</h3><p class="text-sm text-gray-600 mb-8 font-light">The mechanical system for scaling your digital presence.</p></div>
                 <a href="The-Social-Media-Multiplier.pdf" download class="border-2 border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b] hover:text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest transition-all">Download Module 03</a>
             </div>
-
-            <div class="card-hover p-8">
-                <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#991b1b] uppercase">Module 04</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Client Experience</h3><p class="text-sm text-gray-600 mb-8 font-light">Building a system that prioritizes personal commitment.</p></div>
-                <a href="The-Client-Experience-Blueprint.pdf" download class="border-2 border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b] hover:text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest transition-all">Download Module 04</a>
             </div>
 
-            <div class="card-hover p-8">
-                <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#991b1b] uppercase">Module 05</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Consistency Calendar</h3><p class="text-sm text-gray-600 mb-8 font-light">Tactical planning for the daily operational grind.</p></div>
-                <a href="Building-momentum-by-showing-up-even-on-the-quiet-days.pdf" download class="border-2 border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b] hover:text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest transition-all">Download Module 05</a>
+        <section class="max-w-4xl mx-auto px-6 py-24 border-t border-gray-200" id="execution-suite">
+            <div class="text-center mb-12">
+                <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#b8860b] uppercase mb-4">The Execution Suite</h2>
+                <h3 class="brand-font text-3xl font-bold">Interactive Script Dashboards</h3>
+                <p class="text-sm text-gray-500 mt-4">Mechanical tools for the Social Media Multiplier system.</p>
             </div>
 
-            <div class="card-hover p-8">
-                <div><span class="text-[10px] font-bold tracking-[0.4em] text-[#991b1b] uppercase">Module 06</span><h3 class="brand-font text-2xl font-bold mt-2 mb-4">Professional Pivot</h3><p class="text-sm text-gray-600 mb-8 font-light">How to change lanes using existing momentum.</p></div>
-                <a href="How-to-change-lanes-without-losing-your-momentum.pdf" download class="border-2 border-[#991b1b] text-[#991b1b] hover:bg-[#991b1b] hover:text-white text-center py-4 text-[10px] font-bold uppercase tracking-widest transition-all">Download Module 06</a>
-            </div>
+            <div class="dashboard-container p-6 md:p-10 shadow-inner">
+                <div class="flex justify-center gap-8 mb-10">
+                    <button onclick="switchTab('planner')" id="btn-planner" class="text-[10px] font-bold tracking-widest uppercase tab-active pb-1">Weekly Planner</button>
+                    <button onclick="switchTab('scripts')" id="btn-scripts" class="text-[10px] font-bold tracking-widest uppercase tab-inactive pb-1">TikTok Scripts</button>
+                </div>
 
-        </div>
+                <div id="view-planner" class="block">
+                    <div class="min-h-[350px] flex flex-col justify-between">
+                        <div>
+                            <span id="planner-day" class="brand-font text-[#991b1b] text-3xl border-b border-black/10 block mb-2">Monday</span>
+                            <span id="planner-theme" class="text-[9px] uppercase tracking-[0.2em] text-[#b8860b] font-bold">Theme: Authority Positioning</span>
+                            <div id="planner-posts" class="mt-8 space-y-8"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-12 pt-6 border-t border-black/5">
+                            <button onclick="changeDay(-1)" class="text-[10px] font-bold tracking-tighter uppercase opacity-50 hover:opacity-100">← Prev Day</button>
+                            <span id="planner-index" class="text-[9px] font-mono tracking-[0.3em]">1 / 5</span>
+                            <button onclick="changeDay(1)" class="text-[10px] font-bold tracking-tighter uppercase opacity-50 hover:opacity-100">Next Day →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-scripts" class="hidden">
+                    <div class="min-h-[350px] flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start border-b border-black/10 pb-2 mb-6">
+                                <span id="script-title" class="brand-font text-2xl text-[#1a1a1a]">The System vs. The Brand</span>
+                                <span id="script-duration" class="text-[9px] font-mono bg-black text-white px-3 py-1">45 SEC</span>
+                            </div>
+                            <div id="script-steps" class="space-y-6"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-12 pt-6 border-t border-black/5">
+                            <button onclick="changeScript(-1)" class="text-[10px] font-bold tracking-tighter uppercase opacity-50 hover:opacity-100">← Previous</button>
+                            <span id="script-index" class="text-[9px] font-mono tracking-[0.3em]">1 / 5</span>
+                            <button onclick="changeScript(1)" class="text-[10px] font-bold tracking-tighter uppercase opacity-50 hover:opacity-100">Next Script →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="p-12 border-t border-gray-200 text-center text-gray-400 text-[10px] tracking-[0.3em] uppercase">
         <p>&copy; 2026 The Inkwell Repository. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        const plannerData = [
+            { day: "Monday", theme: "Authority Positioning", posts: [
+                { platform: "Instagram / LinkedIn", label: "Thought Leadership Hook", content: "Most people build brands. We build systems that protect them. There's a difference between having a business and having a structure." },
+                { platform: "X / Twitter", label: "Sharp Opener", content: "Your brand isn't the product. It's the system behind it. Protect it accordingly." }
+            ]},
+            { day: "Tuesday", theme: "Blueprint Education", posts: [
+                { platform: "Instagram Carousel", label: "Value Drop", content: "Slide 1: 5 things your business should have documented RIGHT NOW. Slide 2: Your brand voice guide." }
+            ]},
+            { day: "Wednesday", theme: "Behind the Scenes", posts: [
+                { platform: "Story / Reel", label: "Operational Reality", content: "A look inside the Repository. This is how we manage distribution for 4 brands simultaneously." }
+            ]},
+            { day: "Thursday", theme: "Client Results", posts: [
+                { platform: "LinkedIn / FB", label: "The Proof", content: "A handshake used to be a contract. We're bringing that level of commitment back to digital business." }
+            ]},
+            { day: "Friday", theme: "The Call to Action", posts: [
+                { platform: "All Platforms", label: "The Gateway", content: "The Repository is open. Download the Core 6 Blueprints and stop starting from scratch." }
+            ]}
+        ];
+
+        const scriptData = [
+            { title: "The System vs. The Brand", duration: "45s", steps: [
+                { label: "HOOK", time: "0:00-0:05", text: "Most people build brands. Almost nobody builds the system behind it." },
+                { label: "BODY", time: "0:05-0:35", text: "A brand is your logo. A system is what keeps it running when you're not watching. It's your documented processes." },
+                { label: "CTA", time: "0:35-0:45", text: "Link in bio. Start building the system, not just the brand." }
+            ]},
+            { title: "5 Things You Haven't Documented", duration: "60s", steps: [
+                { label: "HOOK", time: "0:00-0:10", text: "If you disappeared for a month, would your business survive?" },
+                { label: "BODY", time: "0:10-0:50", text: "You need a brand voice guide, a revenue distribution plan, and internal IP protection." },
+                { label: "CTA", time: "0:50-0:60", text: "Check the Foundation Vault at the Inkwell Repository." }
+            ]}
+        ];
+
+        let currentDay = 0;
+        let currentScript = 0;
+
+        function switchTab(tab) {
+            const isPlanner = tab === 'planner';
+            document.getElementById('view-planner').classList.toggle('hidden', !isPlanner);
+            document.getElementById('view-scripts').classList.toggle('hidden', isPlanner);
+            document.getElementById('btn-planner').className = `text-[10px] font-bold tracking-widest uppercase pb-1 ${isPlanner ? 'tab-active' : 'tab-inactive'}`;
+            document.getElementById('btn-scripts').className = `text-[10px] font-bold tracking-widest uppercase pb-1 ${!isPlanner ? 'tab-active' : 'tab-inactive'}`;
+        }
+
+        function renderPlanner() {
+            const d = plannerData[currentDay];
+            document.getElementById('planner-day').innerText = d.day;
+            document.getElementById('planner-theme').innerText = "Theme: " + d.theme;
+            document.getElementById('planner-index').innerText = `${currentDay + 1} / ${plannerData.length}`;
+            document.getElementById('planner-posts').innerHTML = d.posts.map(p => `
+                <div>
+                    <span class="text-[8px] font-bold text-white bg-[#991b1b] px-2 py-0.5 uppercase mb-2 inline-block tracking-widest">${p.platform}</span>
+                    <p class="text-sm font-serif leading-relaxed text-[#2a2a22] italic">"${p.content}"</p>
+                </div>
+            `).join('');
+        }
+
+        function renderScripts() {
+            const s = scriptData[currentScript];
+            document.getElementById('script-title').innerText = s.title;
+            document.getElementById('script-duration').innerText = s.duration.toUpperCase();
+            document.getElementById('script-index').innerText = `${currentScript + 1} / ${scriptData.length}`;
+            document.getElementById('script-steps').innerHTML = s.steps.map(step => `
+                <div class="flex gap-6">
+                    <span class="text-[10px] font-mono text-gray-400 pt-1 w-16">${step.time}</span>
+                    <div class="flex-1">
+                        <span class="text-[8px] font-bold uppercase tracking-widest text-[#b8860b]">${step.label}</span>
+                        <p class="text-sm leading-relaxed text-[#1a1a1a] font-semibold mt-1">${step.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeDay(dir) {
+            currentDay = Math.max(0, Math.min(plannerData.length - 1, currentDay + dir));
+            renderPlanner();
+        }
+
+        function changeScript(dir) {
+            currentScript = Math.max(0, Math.min(scriptData.length - 1, currentScript + dir));
+            renderScripts();
+        }
+
+        renderPlanner();
+        renderScripts();
+    </script>
 </body>
 </html>
