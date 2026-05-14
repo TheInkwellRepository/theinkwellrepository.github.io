@@ -20,12 +20,6 @@
         .blueprint-video { width: 100%; height: 100%; object-fit: cover; }
         .btn-crimson { background-color: #991b1b; transition: all 0.3s ease; }
         .btn-crimson:hover { background-color: #000; transform: translateY(-2px); }
-
-        /* Burger Menu Styles */
-        #mobile-menu { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(100%); }
-        #mobile-menu.active { transform: translateX(0); }
-        .burger-line { height: 2px; width: 24px; background-color: #1a1a1a; transition: 0.3s; }
-
         @media (min-width: 1024px) {
             #grid-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
             .grid-item { width: calc(33.333% - 1.5rem); max-width: 350px; }
@@ -62,27 +56,12 @@
     <div class="site-container">
         <header class="glass-header sticky top-0 w-full px-6 py-4 flex justify-between items-center">
             <span class="brand-font font-bold tracking-tight text-xl text-[#991b1b]">Established 2026</span>
-            
             <nav class="hidden md:flex gap-8 text-[10px] font-bold tracking-[0.2em] text-gray-500">
                 <a href="#about" class="hover:text-red-800 transition">THE MANDATE</a>
                 <a href="#collections" class="hover:text-red-800 transition">HOLDINGS</a>
                 <a href="#blueprints" class="hover:text-red-800 transition">BLUEPRINTS</a>
             </nav>
-
-            <button onclick="toggleMenu()" class="md:hidden z-[110] flex flex-col gap-1.5 p-2 focus:outline-none">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </button>
         </header>
-
-        <div id="mobile-menu" class="fixed inset-0 bg-[#f9f7f2] z-[105] flex flex-col items-center justify-center md:hidden">
-            <nav class="flex flex-col gap-10 text-center">
-                <a href="#about" onclick="toggleMenu()" class="brand-font text-3xl hover:text-[#991b1b]">THE MANDATE</a>
-                <a href="#collections" onclick="toggleMenu()" class="brand-font text-3xl hover:text-[#991b1b]">HOLDINGS</a>
-                <a href="#blueprints" onclick="toggleMenu()" class="brand-font text-3xl hover:text-[#991b1b]">BLUEPRINTS</a>
-            </nav>
-        </div>
 
         <section class="hero-bright min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-20">
             <img id="main-seal" src="" alt="Master Seal" class="w-44 h-44 md:w-60 md:h-60 mb-4 drop-shadow-xl">
@@ -129,11 +108,6 @@
     </div>
 
     <script>
-        // Menu Toggle Logic
-        function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('active');
-        }
-
         document.getElementById('hero-title').innerText = REPOSITORY_DATA.hero.title;
         document.getElementById('hero-subtitle').innerText = REPOSITORY_DATA.hero.subtitle;
         document.getElementById('main-seal').src = REPOSITORY_DATA.logoSrc;
