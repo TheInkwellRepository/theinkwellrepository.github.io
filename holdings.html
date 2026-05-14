@@ -1,1 +1,143 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Institutional Brand Portfolio | The Inkwell Repository</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f7f2; color: #1a1a1a; margin: 0; padding: 0; scroll-behavior: smooth; }
+        h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
+        
+        .glass-header { 
+            backdrop-filter: blur(12px); 
+            background-color: rgba(255, 255, 255, 0.8); 
+            z-index: 100; 
+            border-bottom: 1px solid rgba(153, 27, 27, 0.1); 
+        }
+
+        .card-hover { 
+            background: #e8e2d2; 
+            border: 1px solid rgba(0,0,0,0.3); 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        .card-hover:hover { 
+            background: #ffffff; 
+            border-color: #991b1b; 
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(153, 27, 27, 0.15);
+        }
+
+        .archive-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background-color: #f3f4f6;
+        }
+
+        .btn-crimson { 
+            background-color: #991b1b; 
+            transition: all 0.3s ease; 
+        }
+        .btn-crimson:hover { 
+            background-color: #000; 
+        }
+    </style>
+</head>
+<body>
+    <header class="glass-header sticky top-0 w-full px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="brand-font font-bold tracking-tight text-xl text-[#991b1b] flex items-center gap-2">
+            <span>←</span> THE REPOSITORY
+        </a>
+        <span class="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase hidden md:block">Institutional Oversight</span>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-[#1a1a1a]">Brand Portfolio</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto font-light italic leading-relaxed">
+                Strategic oversight and management of independent creative holdings.
+            </p>
+        </div>
+
+        <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#b8860b] uppercase text-center mb-16">Active Institutional Holdings</h2>
+        
+        <div id="holdings-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
+            </div>
+    </main>
+
+    <footer class="p-12 border-t border-gray-200 text-center text-gray-400 text-[10px] tracking-[0.3em] uppercase">
+        <p>&copy; 2026 The Inkwell Repository. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const HOLDINGS_DATA = [
+            { 
+                title: "The Marketing Playbook", 
+                category: "GROWTH STRATEGY", 
+                desc: "A 5-part professional series on building, creating, and scaling your brand using 100% free digital infrastructure.", 
+                img: "playbook-cover.jpg",
+                link: "playbook.html" 
+            },
+            { 
+                title: "The Digital Vault", 
+                category: "STAKEHOLDER ASSETS", 
+                desc: "Access our professional suite of brand audits, project manifestos, and distribution planners.", 
+                img: "digital-vault-cover.jpg",
+                link: "index.html#blueprints" 
+            },
+            { 
+                title: "The Anatomia Archive", 
+                category: "CONTENT DISTRIBUTION", 
+                desc: "A Victorian Gothic narrative series and digital oddity collection, professionally managed via the Substack ecosystem.", 
+                img: "anatomia-holding-cover.jpg",
+                link: "https://anatomiaarchive.substack.com" 
+            },
+            { 
+                title: "Miasma Inoculus", 
+                category: "PROJECT INCUBATION", 
+                desc: "The primary development site for experimental micro-fiction, serving as a blueprint for technical brand hosting.", 
+                img: "miasma-holding-cover.jpg",
+                link: "https://miasma-inoculus.github.io" 
+            },
+            { 
+                title: "Masqueraide Workshop", 
+                category: "OPERATIONAL SYSTEMS", 
+                desc: "The logistical backbone for professional educational content and cinematic horror asset production.", 
+                img: "masqueraide-holding-cover.jpg",
+                link: "https://masqworks.github.io" 
+            }
+        ];
+
+        const grid = document.getElementById('holdings-grid');
+        
+        HOLDINGS_DATA.forEach(item => {
+            const card = `
+                <div class="card-hover p-2 flex flex-col">
+                    <div class="aspect-[4/5] bg-gray-100 mb-6 overflow-hidden">
+                        <img src="${item.img}" class="archive-img" loading="lazy">
+                    </div>
+                    <div class="px-6 pb-4 text-center flex-grow">
+                        <span class="text-[8px] font-bold tracking-[0.3em] text-[#b8860b] uppercase">${item.category}</span>
+                        <h3 class="brand-font text-2xl font-bold mt-2 mb-4">${item.title}</h3>
+                        <p class="text-sm text-gray-500 mb-8 font-light leading-relaxed">${item.desc}</p>
+                    </div>
+                    <div class="pb-8 px-6 text-center">
+                        <a href="${item.link}" class="btn-crimson text-white block w-full py-4 text-[10px] font-bold uppercase tracking-widest transition-all">
+                            Visit Site
+                        </a>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+    </script>
+</body>
+</html>
