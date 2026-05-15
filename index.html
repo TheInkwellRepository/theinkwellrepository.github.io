@@ -285,7 +285,7 @@
             const blueprintSection = `
                 <div class="flex flex-col ${rowClass} items-center gap-12 lg:gap-20">
                     <div class="w-full md:w-1/2 shadow-2xl rounded-sm overflow-hidden bg-black aspect-video">
-                        <video class="blueprint-video" autoplay muted loop playsinline preload="auto">
+                        <video class="blueprint-video" muted loop playsinline preload="none">
                             <source src="${bp.video}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -302,6 +302,38 @@
             `;
             blueprintsContainer.innerHTML += blueprintSection;
         });
+
+// ==========================================
+        // NEW SEQUENTIAL VIDEO LOADER START
+        // ==========================================
+        const blueprintVideos = document.querySelectorAll('.blueprint-video');
+
+        function loadVideosInOrder(index) {
+            if (index >= blueprintVideos.length) return; 
+
+            const video = blueprintVideos[index];
+            
+            video.setAttribute('preload', 'auto');
+            video.load();
+
+            video.oncanplaythrough = () => {
+                video.play().catch(() => {}); 
+                loadVideosInOrder(index + 1); 
+            };
+
+            setTimeout(() => {
+                if (video.readyState < 3) {
+                    console.log(`Video ${index} timed out, skipping to next...`);
+                    loadVideosInOrder(index + 1);
+                }
+            }, 3000);
+        }
+
+        window.addEventListener('load', () => loadVideosInOrder(0));
+        // ==========================================
+        // NEW SEQUENTIAL VIDEO LOADER END
+        // ==========================================
+        
     </script>
 </body>
 </html>
